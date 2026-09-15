@@ -1,0 +1,1 @@
+import Link from 'next/link';export default function NotFound(){return <section className="page empty"><p className="eyebrow">404 / OUT OF BOUNDS</p><h1>暂时走出了地图。</h1><Link className="button" href="/">回到起点 →</Link></section>}

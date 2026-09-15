@@ -1,0 +1,1 @@
+export default function DesignFlow({steps}:{steps:string}){return <figure className="design-flow"><ol>{steps.split('|').map((step,i)=><li key={step}><span>{String(i+1).padStart(2,'0')}</span><p>{step}</p></li>)}</ol><figcaption>设计逻辑示意 · 非原始地图布局</figcaption></figure>}
