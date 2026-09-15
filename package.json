@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "deploy:pages": "bash scripts/deploy-pages.sh"
   },
   "dependencies": {
     "next": "^16.0.0",
