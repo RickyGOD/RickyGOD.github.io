@@ -1,11 +1,11 @@
 # GitHub Pages
 
-Site: https://rickygod.github.io/LDRicky.github.io/
+Site: https://rickygod.github.io/
 
 - `main`: website source
 - `gh-pages`: static export served by GitHub Pages
 - `npm run dev -- --port 3001`: local development at root path
-- `npm run deploy:pages`: build with project base path and publish to gh-pages
+- `npm run deploy:pages`: build at the domain root and publish to gh-pages
 
 Publishing requires GitHub CLI authentication as an account with repository write access.
 Source pushes alone do not deploy. Commit and push source changes, then run the deployment command.

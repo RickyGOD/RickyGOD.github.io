@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-NEXT_PUBLIC_BASE_PATH=/LDRicky.github.io npm run build
+NEXT_PUBLIC_BASE_PATH= npm run build
 touch out/.nojekyll
 target=$(mktemp -d "${TMPDIR:-/tmp}/ricky-pages.XXXXXX")
 trap 'rm -rf "$target"' EXIT
-git -c credential.helper='!gh auth git-credential' clone --single-branch --branch gh-pages https://github.com/RickyGOD/LDRicky.github.io.git "$target"
+git -c credential.helper='!gh auth git-credential' clone --single-branch --branch gh-pages https://github.com/RickyGOD/RickyGOD.github.io.git "$target"
 rsync -a --delete --exclude='.git' out/ "$target/"
 git -C "$target" add -A
 if ! git -C "$target" diff --cached --quiet; then
