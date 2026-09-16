@@ -13,7 +13,39 @@ const projectGroups = [
   {no:'04',title:'系统设计与支持',english:'SYSTEMS & SUPPORT',summary:'穿射规则与反馈｜训练场评分子系统｜地图相关支持工作',note:'只保留与关卡强相关的系统工作：把规则转译为空间约束，再用清晰反馈降低学习成本。',href:'/work/systems-iteration',image:'/media/work/penetration-layout.webp',imageAlt:'Layout 中的穿射设计标记',tags:['穿射系统','评分反馈','关卡支持']},
 ] as const;
 
-const aboutCareer = [career[1], career[0], career[2]];
+const aboutCareer = career;
+
+const badgeDragScript=`(()=>{
+  const init=()=>{
+    document.querySelectorAll('.career-badge[data-badge]').forEach((el)=>{
+      if(el.dataset.dragReady==='1')return;
+      el.dataset.dragReady='1';
+      let dragging=false,startX=0,startY=0,baseX=0,baseY=0;
+      const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
+      el.addEventListener('mousedown',(event)=>{
+        if(event.button!==0)return;
+        event.preventDefault();
+        dragging=true;startX=event.clientX;startY=event.clientY;
+        baseX=Number(el.dataset.dragX||0);baseY=Number(el.dataset.dragY||0);
+        el.classList.add('is-dragging');
+        document.documentElement.classList.add('badge-is-dragging');
+      });
+      window.addEventListener('mousemove',(event)=>{
+        if(!dragging)return;
+        const x=clamp(baseX+event.clientX-startX,-135,135);
+        const y=clamp(baseY+event.clientY-startY,-95,135);
+        el.dataset.dragX=String(x);el.dataset.dragY=String(y);
+        el.style.setProperty('--drag-x',x+'px');
+        el.style.setProperty('--drag-y',y+'px');
+      });
+      window.addEventListener('mouseup',()=>{
+        if(!dragging)return;dragging=false;el.classList.remove('is-dragging');
+        document.documentElement.classList.remove('badge-is-dragging');
+      });
+    });
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();`;
 
 export default function ReferenceFlow(){
   const [reduced,setReduced]=useState(false);
@@ -70,20 +102,32 @@ export default function ReferenceFlow(){
           <div className="about-badge-panel">
             <span className="about-panel-index">CAREER BADGES / 01—03</span>
             <div className="about-speed-lines" aria-hidden="true"/>
-            <div className="career-badge-stack" aria-label="职业经历工牌展示">
-              <div className="career-badge career-badge-longtu" aria-hidden="true">
-                <span className="career-lanyard">LONGTU GAMES</span>
-                <div className="career-card"><small>01 / CAREER</small><strong>龙图游戏</strong><b>LONGTU GAMES</b><p>刘博 · 关卡策划</p><time>2021.04 — 2021.12</time></div>
+            <div className="career-badge-stack" aria-label="职业经历工牌展示，可拖动工牌查看">
+              <div className="career-badge career-badge-longtu" data-badge="longtu" aria-label="龙图游戏履历卡，可拖动">
+                <div className="career-badge-motion">
+                  <span className="career-lanyard">LONGTU GAMES</span>
+                  <div className="career-card"><small>01 / CAREER</small><strong>龙图游戏</strong><b>LONGTU GAMES</b><p>刘博 · 关卡策划</p><time>2021.04 — 2021.12</time></div>
+                </div>
               </div>
-              <div className="career-badge career-badge-study" aria-hidden="true">
-                <span className="career-lanyard">SANGMYUNG</span>
-                <div className="career-card"><small>03 / STUDY</small><strong>韩国读研</strong><b>SANGMYUNG</b><p>Game Design · 硕士阶段</p><time>2025.02 — 2026.07</time></div>
+              <div className="career-badge career-badge-study" data-badge="study" aria-label="阶段进修履历卡，可拖动">
+                <div className="career-badge-motion">
+                  <span className="career-lanyard">GRADUATE STUDY</span>
+                  <div className="career-card"><small>03 / STUDY</small><strong>阶段进修</strong><b>SANGMYUNG · GAME DESIGN</b><p>游戏设计硕士阶段学习</p><time>2025.02 — 2026.07</time></div>
+                </div>
               </div>
-              <div className="career-badge career-badge-netease">
-                <img src={(process.env.NEXT_PUBLIC_BASE_PATH||'')+'/media/profile/netease-badge-shell-public.jpg'} alt="刘博网易工牌与红色工牌外壳实拍，员工编号已模糊"/>
+              <div className="career-badge career-badge-netease" data-badge="netease" aria-label="网易游戏工牌，可拖动">
+                <div className="career-badge-motion">
+                  <span className="career-lanyard netease-lanyard">NETEASE</span>
+                  <span className="netease-clip" aria-hidden="true"><i/><b/></span>
+                  <div className="netease-shell">
+                    <div className="netease-card netease-card-photo-replica">
+                      <img className="netease-card-reference" src={(process.env.NEXT_PUBLIC_BASE_PATH||'')+'/media/profile/netease-badge-card-clean.jpg'} alt="刘博网易员工卡样式"/>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="badge-verified"><strong>刘博 Ricky</strong><span>NETEASE · LONGTU · SANGMYUNG</span><small>CAREER / STUDY ARCHIVE</small></div>
+            <script dangerouslySetInnerHTML={{__html:badgeDragScript}}/>
           </div>
 
           <main className="about-copy">
@@ -104,18 +148,19 @@ export default function ReferenceFlow(){
             </section>
           </main>
 
-          <aside className="about-side">
-            <div className="profile-polaroid reference-polaroid">
-              <div><img src={(process.env.NEXT_PUBLIC_BASE_PATH||'')+'/media/profile/netease-portrait.jpg'} alt="刘博个人照片"/></div>
-              <p>Ricky / 刘博</p>
-              <small>LEVEL DESIGNER</small>
+          <aside className="about-side about-side-contact-only">
+            <div className="about-status-card" aria-label="当前求职状态">
+              <span>PROFILE / CURRENT</span>
+              <div><small>TARGET</small><strong>关卡策划 / LEVEL DESIGNER</strong></div>
+              <div><small>FOCUS</small><strong>PVP MAP · GAMEPLAY POLISH</strong></div>
+              <div><small>TOOLS</small><strong>UE4 · AI AGENT · CODEX</strong></div>
+              <div><small>STATUS</small><strong>已离职 - 随时到岗</strong></div>
             </div>
             <div className="about-contact-card" aria-label="联系方式">
               <span>CONTACT / CURRENT</span>
               <a href="tel:17701055564"><b>☎</b><div><small>PHONE</small><strong>17701055564</strong></div></a>
               <a href="mailto:404291277@qq.com"><b>✉</b><div><small>EMAIL</small><strong>404291277@qq.com</strong></div></a>
-              <div className="about-location"><b>⌖</b><div><small>LOCATION</small><strong>深圳 / SHENZHEN</strong></div></div>
-              <i>AVAILABLE FOR FULL-TIME LEVEL DESIGN</i>
+                            <i>AVAILABLE FOR FULL-TIME LEVEL DESIGN</i>
             </div>
           </aside>
         </div>

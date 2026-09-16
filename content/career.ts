@@ -31,8 +31,8 @@ export const career = [
   },
   {
     id:'study',
-    company:'韩国祥明大学',
-    english:'SANGMYUNG UNIVERSITY',
+    company:'阶段进修',
+    english:'GRADUATE STUDY',
     period:'2025.02 — 2026.07',
     role:'游戏设计硕士阶段学习',
     code:'03',
