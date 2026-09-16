@@ -5,3 +5,17 @@ body:has(.arcade){max-width:none;background:#f0ede6;border:0;color:#363b39}body:
 @media(prefers-reduced-motion:reduce){.arcade *, .arcade *:before,.arcade *:after{animation:none!important;transition:none!important}}
 @media(max-width:700px){.arcade-intro .badge-scene,.arcade-boot .badge-scene{top:180px;right:-205px;transform:scale(.33)}}
 .badge-real-portrait{display:none}
+/* NetEase card follows the supplied physical employee badge; the other two keep the portfolio treatment. */
+.badge-netease .id-badge{padding:0;background:#f7f8f5;border-color:#d6d8d5;border-radius:8px;color:#101312}
+.netease-card-face{position:absolute;inset:0;display:grid;grid-template-rows:108px 174px 57px;background:linear-gradient(145deg,#fff,#eef1ef);overflow:hidden}
+.netease-meta{display:block;padding:27px 20px 7px;position:relative;z-index:2}
+.netease-meta strong{display:block;font:700 26px/1.05 'Noto Sans SC',Arial,sans-serif;letter-spacing:1px;color:#101312}
+.netease-meta i{display:block;width:39px;height:4px;margin:9px 0 8px;background:#bd0015}
+.netease-meta>span{display:block;font:600 12px/1.2 'Noto Sans SC',Arial,sans-serif;color:#151918}
+.netease-meta small{display:block;margin-top:6px;font:6px/1 monospace;letter-spacing:.9px;color:#535b58}
+.netease-photo-wrap{display:block;position:relative;overflow:hidden;background:linear-gradient(90deg,#f5f7f5 0 28%,#eef2ef 28%)}
+.netease-id-photo{position:absolute;right:4px;top:0;width:75%;height:100%;display:block;object-fit:cover;object-position:center 18%;filter:saturate(.82) contrast(.98)}
+.netease-brandbar{display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(180deg,#c80019,#ad0014);color:#fff;text-shadow:0 1px #82000d}
+.netease-brandbar b{font:800 21px/1 'Noto Sans SC',Arial,sans-serif;letter-spacing:1px}
+.netease-brandbar strong{font:800 17px/1 Arial,sans-serif;letter-spacing:.6px}
+.badge-netease .badge-gloss{z-index:5}
