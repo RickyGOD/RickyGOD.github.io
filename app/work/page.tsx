@@ -16,7 +16,7 @@ const covers:Record<string,string>={
 
 const groups=[
   {no:'01',title:'爆破模式关卡白盒',english:'BOMB-SITE LEVEL BLOCKOUT',intro:'以虚灵遗迹为主案例，从 2D Layout、整体白盒到包点、中路机制与美术交付。',slugs:['ethereal-ruins']},
-  {no:'02',title:'其他关卡设计',english:'OTHER LEVEL DESIGN',intro:'投掷炸弹娱乐模式白盒、TDM 平面设计，以及龙图大逃杀据点与开放区域。',slugs:['combat-maps']},
+  {no:'02',title:'其他关卡设计',english:'OTHER LEVEL DESIGN',intro:'投掷炸弹娱乐模式白盒，以及龙图大逃杀据点与开放区域。',slugs:['combat-maps']},
   {no:'03',title:'活动模式',english:'LIMITED-TIME MODE',intro:'从规则、地图适配到跨专业制作与验收的完整活动交付。',slugs:['christmas-snowball']},
   {no:'04',title:'关卡相关系统设计',english:'LEVEL DESIGN SYSTEMS',intro:'不同材质的弹孔与命中反馈，以及训练场评分和成长反馈。',slugs:['systems-iteration']},
 ];

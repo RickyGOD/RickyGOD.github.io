@@ -8,7 +8,7 @@ import './reference-flow.css';
 
 const projectGroups = [
   {no:'01',title:'爆破模式关卡白盒',english:'BOMB-SITE LEVEL BLOCKOUT',summary:'虚灵遗迹｜2D Layout、整体白盒、A/B 包点与动态中路',note:'从全局路线到局部交战空间，完整展示原创爆破地图如何从 2D Layout 推进到 Whitebox、机制验证与美术交付。',href:'/work/ethereal-ruins',image:'/media/work/bomb-blockout-overview.webp',imageAlt:'虚灵遗迹完整三维白盒鸟瞰',tags:['虚灵遗迹','2D Layout','A/B 包点']},
-  {no:'02',title:'其他关卡设计',english:'OTHER LEVEL DESIGN',summary:'投掷炸弹娱乐模式｜TDM Layout｜龙图大逃杀据点',note:'用不同尺度的项目补充能力宽度：投掷炸弹娱乐模式白盒、团队竞技平面设计，以及大逃杀据点与开放区域。',href:'/work/combat-maps',image:'/media/work/heatwave-v3-overview.webp',imageAlt:'投掷炸弹娱乐模式白盒鸟瞰',tags:['投掷娱乐模式','TDM Layout','大逃杀据点']},
+  {no:'02',title:'其他关卡设计',english:'OTHER LEVEL DESIGN',summary:'投掷炸弹娱乐模式｜龙图大逃杀据点',note:'用不同尺度的项目补充能力宽度：投掷炸弹娱乐模式白盒，以及大逃杀据点与开放区域。',href:'/work/combat-maps',image:'/media/work/heatwave-v3-overview.webp',imageAlt:'投掷炸弹娱乐模式白盒鸟瞰',tags:['投掷娱乐模式','大逃杀据点','开放区域']},
   {no:'03',title:'活动模式',english:'LIMITED-TIME MODE',summary:'圣诞打雪仗｜规则、地图适配、投掷体验与完整上线交付',note:'从玩法规则到地图改造、跨专业跟进和跑测验收，独立推进一个完整限时模式。',href:'/work/christmas-snowball',image:'/media/work/snow-overview.webp',imageAlt:'圣诞打雪仗场景总览',tags:['规则设计','地图适配','上线交付']},
   {no:'04',title:'关卡相关系统设计',english:'LEVEL DESIGN SYSTEMS',summary:'材质弹孔与命中反馈｜训练场评分与成长反馈',note:'用水泥、金属和木材的弹孔差异建立材质辨识，并展示训练场评分子系统如何提供成长反馈。',href:'/work/systems-iteration',image:'/media/work/penetration-materials-overview.webp',imageAlt:'水泥、金属与木材的弹孔反馈方案',tags:['弹孔反馈','材质辨识','训练评分']},
 ] as const;
