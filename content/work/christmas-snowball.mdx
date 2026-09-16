@@ -1,33 +1,36 @@
 ---
-title: "圣诞打雪仗｜活动完整设计与上线交付"
-summary: "独立负责规则、地图氛围改造、投掷体验、跨专业落地及限时版本上线验收。"
+title: "圣诞打雪仗｜活动模式"
+summary: "我负责玩法规则、雪球与 Buff 设计、地图适配，并跟进实机落地与上线验收。"
 status: published
-date: "2026-09-15"
-order: 3
+date: "2026-09-16"
+order: 4
 ---
 
-<CaseMedia src="snowball-demo.mp4" video caption="圣诞打雪仗 · 工作汇总中的实机演示节选（17秒，无声）。展示投掷、命中与雪人状态变化，裁去桌面边缘；不作为最终上线版本证明。" />
+<CaseMedia src="snowball-demo.mp4" video caption="圣诞打雪仗实机片段 · 展示投掷、命中与雪人状态变化。" />
 
-**我的职责**：活动规则、地图适配、道具与Buff、投掷体验、跨专业落地、跑测与上线验收。底图为既有 Ice World，不作为本人原创地图。
+**我的职责**：玩法规则、雪球与 Buff 设计、投掷体验、地图适配、跨专业跟进、跑测与上线验收。底图使用既有 Ice World，不作为本人原创地图。
 
-## 节日场景与地图适配
+## 一句话玩法
 
-<CaseMedia src="snow-overview.webp" caption="场景总览 · 在既有地图上调整部分掩体并完成节日主题适配；图片裁去编辑器工具栏和调试区域。" />
+这是一个 5v5 投掷对战活动。玩家只能使用雪球攻击，第一次命中会把对手变成雪人，再次命中雪人才获得击杀积分。先达到目标击杀数的队伍获胜。
+
+<CaseMedia src="snowball-attack-demo.mp4" video poster="snowball-attack-poster.jpg" caption="雪球攻击演示 · 蓄力会改变雪球大小与投掷表现。" />
+
+<CaseMedia src="snowball-snowman-demo.mp4" video poster="snowball-snowman-poster.jpg" caption="雪人状态演示 · 命中后进入可识别状态，再次命中完成击杀。" />
+
+## 地图适配与 Buff
+
+地图工作围绕雪球的抛射轨迹和移动节奏展开。我调整局部掩体与 Buff 摆放，让玩家能快速找到交战方向，同时避免节日包装遮挡战斗信息。
+
+<CaseMedia src="snow-overview.webp" caption="地图总览 · 在既有 Ice World 上完成活动玩法适配。" />
 
 <div className="media-pair">
-<CaseMedia src="snow-lane.webp" caption="通道视角 · 节日包装与原有交战空间结合。" />
-<CaseMedia src="snow-center.webp" caption="中央区域 · 礼盒与节日场景布置。场景资产由美术团队制作。" />
+<CaseMedia src="snow-lane.webp" caption="通道实机 · 检查投掷路线、掩体遮挡与交战距离。" />
+<CaseMedia src="snowball-buff-gifts.webp" caption="Buff 礼盒 · 用颜色和标识区分速射、大雪球、散射与弹射。" />
 </div>
 
-## 玩法与交付
+## 从规则到上线
 
-雪球命中使目标进入雪人状态，再次命中计分。围绕蓄力、飞行轨迹以及速射、大雪球、散射和反弹Buff，跟进程序、动作、特效和反馈实现。
+我负责把模式从规则设计推进到可玩版本，并持续与程序、动作、特效、美术和 QA 跑测。案例重点是完整交付一套玩家能快速理解的活动玩法，而不是底图本身。
 
-<details>
-<summary>展开：上线前验收职责</summary>
-
-工期紧张期间每日跑测，直接与相关同事沟通问题，跟进修复和回归，持续到最终打包上线。本人负责全套设计、落地跟进、验收与优化，不把程序和美术的具体实现算作个人独立制作。
-
-</details>
-
-[查看虚灵遗迹](/work/ethereal-ruins)
+[返回其他关卡设计](/work/combat-maps) · [继续看关卡相关系统设计](/work/systems-iteration)

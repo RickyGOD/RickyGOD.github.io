@@ -112,3 +112,9 @@ body:has(.reference-flow){max-width:none;border:0;background:#13232d;color:#eeea
   .about-side{padding-top:88px!important;}
 }
 .flow-projects{scroll-margin-top:74px;}
+
+/* Keep the full tactical plan visible in the bomb-map preview. */
+.project-preview-01 .preview-image{background:linear-gradient(145deg,#536860,#263b3d)}
+.project-preview-01 .preview-image img{object-fit:contain;padding:12px}
+.project-preview-04 .preview-image{background:#282842}
+.project-preview-04 .preview-image img{object-fit:contain}

@@ -15,20 +15,17 @@ export default async function Page({params}:{params:Promise<{slug:string}>}){
   const e=entries('work').find(e=>e.slug===slug);
   if(!e)notFound();
   const hero=e.body.trim().match(/^(?:<CaseMedia[^\n]+\/>|<div className="media-pair">[\s\S]*?<\/div>)/)?.[0]||'';
-  const headings=[...e.body.matchAll(/^## (.+)$/gm)].map(m=>m[1]);
   let index=0;
   const body=e.body.replace(hero,'').replace(/^## (.+)$/gm,(_,title)=>`<h2 id="section-${++index}">${title}</h2>`);
   return <div className="case-shell">
     <PortfolioNav active="portfolio"/>
     <article className={e.body.includes('<CaseMedia')?'case-document media-article':'case-document'}>
-      <div className="case-topline"><Link href="/#portfolio">← 返回作品分类</Link><span>LEVEL DESIGN CASE / {e.date}</span></div>
+      <div className="case-topline"><Link href="/#portfolio">← 返回作品分类</Link></div>
       <header className="case-hero-copy">
-        <p>SELECTED WORK / RICKY LIU</p>
         <h1>{e.title}</h1>
         <div>{e.summary}</div>
       </header>
       {hero&&<div className="case-hero-media"><MDXRemote source={hero} components={{CaseMedia}}/></div>}
-      {headings.length>0&&<nav className="case-toc" aria-label="案例目录"><strong>CASE INDEX</strong>{headings.map((title,i)=><SiteAnchor key={title} href={`#section-${i+1}`}>{String(i+1).padStart(2,'0')} / {title}</SiteAnchor>)}</nav>}
       <div className="prose"><MDXRemote source={body} components={{DesignFlow,a:SiteAnchor,CaseMedia}}/></div>
       <footer className="case-footer"><Link href="/#portfolio">← 返回 Portfolio</Link><Link href="/work">查看全部作品 ↗</Link></footer>
     </article>

@@ -4,13 +4,15 @@ import crypto from 'node:crypto';
 
 const base=process.env.QA_BASE_URL||'http://127.0.0.1:3001';
 const checks={
-  '/':['韩国读研','网易游戏','龙图游戏','17701055564','404291277@qq.com','深圳 / SHENZHEN'],
-  '/work':'作品不是按项目堆放',
-  '/work/ethereal-ruins':'动态中路',
+  '/':['韩国祥明大学','网易游戏','龙图游戏','17701055564','404291277@qq.com','现居深圳','爆破模式关卡白盒','其他关卡设计','关卡相关系统设计'],
+  '/work':['作品不是按项目堆放','爆破模式关卡白盒','其他关卡设计','活动模式','关卡相关系统设计'],
+  '/work/ethereal-ruins':['虚灵遗迹｜爆破模式关卡白盒','动态中路','bomb-layout-overview.webp','bomb-a-site.webp'],
+  '/work/combat-maps':['其他关卡设计｜娱乐模式、TDM 与龙图','投掷炸弹娱乐模式','TDM','集市哨岗','P1 据点','P2 据点','异形巢穴','longtu-nest-interior.webp'],
+  '/work/longtu-battle-royale':['龙图｜大逃杀关卡白盒图集','集市哨岗','P1 据点','P2 据点','异形巢穴','longtu-p1-layout.webp','longtu-nest-interior.webp'],
   '/work/gameplay-polish':'画面与碰撞一致',
-  '/work/christmas-snowball':'圣诞打雪仗',
+  '/work/christmas-snowball':['圣诞打雪仗｜活动模式','一句话玩法','snowball-attack-demo.mp4','snowball-snowman-demo.mp4','从规则到上线'],
   '/work/penetration-system':'玩家需要预测结果',
-  '/work/systems-iteration':'评分与成长反馈子系统',
+  '/work/systems-iteration':['关卡相关系统设计｜穿射与训练','不同材质弹孔方案页','材质与穿射反馈','训练场评分反馈','penetration-materials-overview.webp'],
   '/lab/ai-agent-workflows':'韩国祥明大学游戏设计专业硕士阶段学习'
 };
 
@@ -27,7 +29,18 @@ for(const [path,needles] of Object.entries(checks)){
 const assets=[
   '/resume/ricky-level-designer.pdf',
   '/media/profile/netease-badge-shell-public.jpg',
-  '/media/work/snowball-demo.mp4'
+  '/media/work/snowball-demo.mp4',
+  '/media/work/snowball-attack-demo.mp4',
+  '/media/work/snowball-snowman-demo.mp4',
+  '/media/work/bomb-blockout-overview.webp',
+  '/media/work/heatwave-v3-overview.webp',
+  '/media/work/longtu-nest-overview.webp',
+  '/media/work/longtu-p1-layout.webp',
+  '/media/work/snowball-buff-gifts.webp',
+  '/media/work/penetration-wood.webp',
+  '/media/work/penetration-materials-overview.webp',
+  '/media/work/bomb-mid-animation.webp',
+  '/media/work/wall-readability-demo.mp4'
 ];
 const assetResults={};
 for(const path of assets){

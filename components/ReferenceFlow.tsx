@@ -7,10 +7,10 @@ import {career} from '../content/career';
 import './reference-flow.css';
 
 const projectGroups = [
-  {no:'01',title:'关卡白盒',english:'LEVEL BLOCKOUT',summary:'原创爆破地图「虚灵遗迹」｜TDM 完整地图｜龙图大逃杀据点',note:'从 2D Layout、Whitebox 到美术落地，重点展示路线、枪线、包点和空间迭代。',href:'/work/ethereal-ruins',image:'/media/work/ruins-overview.webp',imageAlt:'虚灵遗迹白盒鸟瞰',tags:['虚灵遗迹','TDM','大逃杀据点']},
-  {no:'02',title:'地图优化',english:'GAMEPLAY POLISH',summary:'既有地图诊断｜战斗可读性｜碰撞、掩体与英雄技能空间',note:'不是重做地图，而是定位已有空间的问题，再通过结构、尺度和场景表达修正体验。',href:'/work/gameplay-polish',image:'/media/work/polish-after.webp',imageAlt:'地图掩体结构调整后画面',tags:['空间诊断','Metrics','可读性']},
+  {no:'01',title:'爆破模式关卡白盒',english:'BOMB-SITE LEVEL BLOCKOUT',summary:'虚灵遗迹｜2D Layout、整体白盒、A/B 包点与动态中路',note:'从全局路线到局部交战空间，完整展示原创爆破地图如何从 2D Layout 推进到 Whitebox、机制验证与美术交付。',href:'/work/ethereal-ruins',image:'/media/work/bomb-blockout-overview.webp',imageAlt:'虚灵遗迹完整三维白盒鸟瞰',tags:['虚灵遗迹','2D Layout','A/B 包点']},
+  {no:'02',title:'其他关卡设计',english:'OTHER LEVEL DESIGN',summary:'投掷炸弹娱乐模式｜TDM Layout｜龙图大逃杀据点',note:'用不同尺度的项目补充能力宽度：投掷炸弹娱乐模式白盒、团队竞技平面设计，以及大逃杀据点与开放区域。',href:'/work/combat-maps',image:'/media/work/heatwave-v3-overview.webp',imageAlt:'投掷炸弹娱乐模式白盒鸟瞰',tags:['投掷娱乐模式','TDM Layout','大逃杀据点']},
   {no:'03',title:'活动模式',english:'LIMITED-TIME MODE',summary:'圣诞打雪仗｜规则、地图适配、投掷体验与完整上线交付',note:'从玩法规则到地图改造、跨专业跟进和跑测验收，独立推进一个完整限时模式。',href:'/work/christmas-snowball',image:'/media/work/snow-overview.webp',imageAlt:'圣诞打雪仗场景总览',tags:['规则设计','地图适配','上线交付']},
-  {no:'04',title:'系统设计与支持',english:'SYSTEMS & SUPPORT',summary:'穿射规则与反馈｜训练场评分子系统｜地图相关支持工作',note:'只保留与关卡强相关的系统工作：把规则转译为空间约束，再用清晰反馈降低学习成本。',href:'/work/systems-iteration',image:'/media/work/penetration-layout.webp',imageAlt:'Layout 中的穿射设计标记',tags:['穿射系统','评分反馈','关卡支持']},
+  {no:'04',title:'关卡相关系统设计',english:'LEVEL DESIGN SYSTEMS',summary:'材质弹孔与命中反馈｜训练场评分与成长反馈',note:'用水泥、金属和木材的弹孔差异建立材质辨识，并展示训练场评分子系统如何提供成长反馈。',href:'/work/systems-iteration',image:'/media/work/penetration-materials-overview.webp',imageAlt:'水泥、金属与木材的弹孔反馈方案',tags:['弹孔反馈','材质辨识','训练评分']},
 ] as const;
 
 const aboutCareer = career;
@@ -168,10 +168,10 @@ export default function ReferenceFlow(){
 
       <section className="flow-projects" id="portfolio" aria-label="作品分类">
         <div className="portfolio-watermark" aria-hidden="true">PORTFOLIO</div>
-        <header className="portfolio-head"><p>SELECTED WORK / 2021—2024</p><h2>按工作类型查看作品</h2><span>关卡白盒、地图优化、活动模式，以及系统与支持类工作。</span></header>
+        <header className="portfolio-head"><p>SELECTED WORK / 2021—2024</p><h2>按工作类型查看作品</h2><span>爆破模式关卡白盒、其他关卡设计、活动模式，以及关卡相关系统设计。</span></header>
         <div className="portfolio-layout">
           <div className="project-table" onPointerLeave={()=>setPreview(0)}>{projectGroups.map((group,i)=><Link href={group.href} key={group.no} className={'project-row '+(preview===i?'is-active':'')} onPointerEnter={()=>setPreview(i)} onFocus={()=>setPreview(i)}><span className="project-no">{group.no}</span><span className="project-title"><strong>{group.title}</strong><small>{group.english}</small><em>{group.summary}</em></span><span className="project-arrow">↗</span></Link>)}</div>
-          <div className="project-preview" aria-live="polite"><div className="preview-image"><img key={projectGroups[preview].image} src={(process.env.NEXT_PUBLIC_BASE_PATH||'')+projectGroups[preview].image} alt={projectGroups[preview].imageAlt}/><span>{projectGroups[preview].no}</span></div><p>{projectGroups[preview].note}</p><div>{projectGroups[preview].tags.map(tag=><span key={tag}>{tag}</span>)}</div><Link href={projectGroups[preview].href}>打开该板块 <span>↗</span></Link></div>
+          <div className={'project-preview project-preview-'+projectGroups[preview].no} aria-live="polite"><div className="preview-image"><img key={projectGroups[preview].image} src={(process.env.NEXT_PUBLIC_BASE_PATH||'')+projectGroups[preview].image} alt={projectGroups[preview].imageAlt}/><span>{projectGroups[preview].no}</span></div><p>{projectGroups[preview].note}</p><div>{projectGroups[preview].tags.map(tag=><span key={tag}>{tag}</span>)}</div><Link href={projectGroups[preview].href}>打开该板块 <span>↗</span></Link></div>
         </div>
         <nav className="content-links" aria-label="更多内容"><Link href="/work">全部作品</Link><Link href="/blog">设计随笔</Link><Link href="/lab">AI 探索</Link><Link href="/about">个人资料</Link></nav>
       </section>

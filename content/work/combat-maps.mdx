@@ -1,26 +1,67 @@
 ---
-title: "TDM与投掷活动｜其他地图实践"
-summary: "完整TDM地图设计，以及基于英雄投掷技能射程的活动区域白盒。"
+title: "其他关卡设计｜娱乐模式、TDM 与龙图"
+summary: "投掷炸弹娱乐模式的连续白盒迭代、TDM 地图设计，以及龙图项目的大逃杀据点。"
 status: published
-date: "2026-09-15"
-order: 6
+date: "2026-09-16"
+order: 2
 ---
 
-## TDM：完整地图设计
+<CaseMedia src="heatwave-v3-overview.webp" caption="投掷炸弹娱乐模式白盒 · 用环形路线、掩体和中心结构组织对抗。" />
 
-我独立设计过一张完整TDM团队竞技地图，负责Layout、战斗路线、出生区域、Combat Space和交战节奏，并完成对应白盒制作。
+## 投掷炸弹娱乐模式
 
-与爆破模式不同，这段工作围绕团队竞技模式组织战斗空间。现阶段先保留本人确认的工作范围；具体Layout、白盒截图和迭代案例将在资料补齐后展示，不用其他地图的图片替代。
+玩家进入休闲广场中的独立场地，通过投掷炸弹相互攻击。我从草图与 Simple Layout 开始，根据投掷距离、技能冷却和测试反馈持续调整场地尺度、掩体数量与中心区域。
 
-## 投掷活动：以技能范围约束空间
+<div className="media-pair">
+<CaseMedia src="heatwave-v1-sketch.webp" caption="初版草图 · 确认圆形区域、外围进入方向与中心舞台。" />
+<CaseMedia src="heatwave-simple-layout.webp" caption="Simple Layout · 用外圈掩体和中心立柱搭出最小可玩结构。" />
+</div>
 
-我为休闲广场中的一个投掷对抗活动区域制作白盒。玩家在该区域使用英雄投掷炸弹的技能相互攻击；我根据技能射程范围适配整个活动区域的地图尺度。
+<div className="media-pair">
+<CaseMedia src="heatwave-v2-overview.webp" caption="Ver.2 · 建立可测试的基础体块。" />
+<CaseMedia src="heatwave-v3-detail.webp" caption="Ver.3 · 加入坡道、外圈掩体与高低变化。" />
+</div>
 
-我的职责是这个活动模块的区域白盒，不是整个休闲广场系统，也不扩展为其他团队成员负责的完整玩法设计。
+<CaseMedia src="heatwave-v4-overview.webp" caption="Ver.4 · 根据测试继续扩大活动范围并调整遮挡与对抗节奏。" />
 
-## 与主案例的联系
+## TDM 地图设计
 
-这些实践补充了不同模式下的地图经验：从爆破的路线选择，到TDM的交战空间，再到围绕单个技能适配区域尺度。当前先展示职责，不补写尚无法核对的具体点位、出生算法或效果数据。
+我独立完成过一张 TDM 团队竞技地图，负责 2D Layout、战斗路线、出生区域、Combat Space、交战节奏与白盒制作。当前归档中没有能明确对应这张地图的公开截图，因此不使用其他项目素材替代。
 
-[阅读完整爆破地图案例](/work/ethereal-ruins)
+## 龙图关卡白盒
 
+龙图阶段的工作以图片为主展示。每个据点同时放出整体白盒与俯视路线图，便于直接查看空间体块、入口和路线关系。
+
+### 集市哨岗
+
+<div className="media-pair">
+<CaseMedia src="longtu-market-overview.webp" caption="集市哨岗整体白盒。" />
+<CaseMedia src="longtu-market-layout.webp" caption="集市哨岗俯视路线图。" />
+</div>
+
+<CaseMedia src="longtu-market-watchtower.webp" caption="倾倒瞭望台 · 将既有资产转化为通路与掩体。" />
+
+### P1 据点
+
+<div className="media-pair">
+<CaseMedia src="longtu-p1-overview.webp" caption="P1 整体白盒 · 结合坡地高差与跳伞塔。" />
+<CaseMedia src="longtu-p1-layout.webp" caption="P1 俯视路线图。" />
+</div>
+
+### P2 据点
+
+<div className="media-pair">
+<CaseMedia src="longtu-p2-overview.webp" caption="P2 整体白盒 · 高墙包围的紧凑型哨岗。" />
+<CaseMedia src="longtu-p2-layout.webp" caption="P2 俯视路线图。" />
+</div>
+
+### 异形巢穴
+
+<div className="media-pair">
+<CaseMedia src="longtu-nest-overview.webp" caption="异形巢穴整体白盒 · 以坠毁飞船形成大型地标。" />
+<CaseMedia src="longtu-nest-routes.webp" caption="异形巢穴外部路线图。" />
+</div>
+
+<CaseMedia src="longtu-nest-interior.webp" caption="异形巢穴内部空间 · 用残骸、岩体和掩体控制视野与接敌。" />
+
+[返回虚灵遗迹](/work/ethereal-ruins) · [继续看圣诞打雪仗](/work/christmas-snowball)

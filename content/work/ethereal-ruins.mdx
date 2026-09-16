@@ -1,65 +1,63 @@
 ---
-title: "虚灵遗迹｜从战术空间到上线地图"
-summary: "网易 5v5 英雄战术射击原创爆破地图：Layout、白盒迭代、动态中路与美术落地。"
+title: "虚灵遗迹｜爆破模式关卡白盒"
+summary: "网易 5v5 英雄战术射击原创爆破地图，从 2D Layout、整体白盒到 A/B 包点、动态中路与美术交付。"
 status: published
 date: "2026-09-16"
 order: 1
 ---
 
-<CaseMedia src="ruins-mid.webp" caption="虚灵遗迹 · 美术制作阶段。中路动态装置是这张地图最核心的辨识机制之一；本图不是最终上线截图。" />
+<div className="media-pair">
+<CaseMedia src="bomb-layout-overview.webp" caption="总体 2D 平面图 · 出生区、A/B 包点、中路与转点关系。" />
+<CaseMedia src="bomb-blockout-overview.webp" caption="整体 3D 白盒 · 将路线转化为可测试的体块、高低差与交战空间。" />
+</div>
 
-**我的职责**：Concept、2D Layout、Whitebox、测试迭代、世界观对齐、机制讨论、美术需求与验收。程序实现和美术资产由对应专业同事完成。
+**我的职责**：Concept、2D Layout、Whitebox、测试迭代、世界观对齐、动态机制讨论、美术需求与验收。程序实现和美术资产由对应专业同事完成。
 
-## 先把战斗关系搭出来
+## 整体布局
+
+白盒先确定出生区、A/B 包点、中路和转点路线，再逐步核对枪线、掩体、高低差与推进节奏。平面图说明路线意图，3D 白盒验证真实空间，二者保持同步迭代。
+
+## A/B 包点
+
+两个包点使用不同的入口、枪线与掩体关系，避免形成镜像体验。白盒阶段重点检查进点前的信息、下包后的可利用体块，以及防守方回防路线。
 
 <div className="media-pair">
-<CaseMedia src="ruins-overview.webp" caption="白盒鸟瞰：先验证区域关系、高低差和主要连接，再进入场景制作。" />
-<CaseMedia src="ruins-layout.webp" caption="2D Layout：出生区、包点与中路连接关系。只展示可确认的结构，不写存在版本矛盾的距离或时间数据。" />
+<CaseMedia src="bomb-a-site.webp" caption="A 包点白盒 · 下包区域、入口方向与掩体关系。" />
+<CaseMedia src="bomb-b-site.webp" caption="B 包点白盒 · 长通道、包点体块与侧向连接。" />
 </div>
 
-**设计判断**：两个包点、中路和转点路线需要形成不同的空间选择，而不是把同一种交战体验复制两次。白盒阶段先解决路线、枪线、掩体和高低差，美术主题随后跟进。
+## 动态中路
 
-## 动态中路：让时间改变枪线
+中路装置周期升降，直接改变双方能观察和通过的空间。玩家可以读取装置状态，再决定推进、等待或转点。
 
-**问题**：固定中路的价值和风险很容易在开局后迅速稳定下来。
+<CaseMedia src="bomb-mid-device.webp" caption="动态中路装置白盒 · 装置状态改变中路视野和推进窗口。" />
 
-**决策**：在中路加入周期变化的视野阻隔。双方都能提前读取变化时机；装置升起时遮挡视野，但不提供实体防弹掩护。
-
-**结果**：地图本身形成一个可预判的时间窗口，玩家可以围绕它选择推进、转点、移动或绕后，而不是把动态装置当成单纯的视觉演出。
-
-## 白盒不是终点
-
-<div className="media-trio">
-<CaseMedia src="ruins-whitebox.webp" caption="Whitebox · 验证体块、入口和交战空间。" />
-<CaseMedia src="ruins-greybox.webp" caption="Greybox · 把空间关系带入场景制作。" />
-<CaseMedia src="ruins-art.webp" caption="Art Pass · 持续检查场景包装是否改变原有玩法关系。" />
+<div className="media-narrow">
+<CaseMedia src="bomb-mid-animation.webp" caption="动态中路成品演示 · 中央装置周期升降。" />
 </div>
 
-这些画面来自不同制作阶段，镜头并不完全一致，因此只用来展示生产过程，不做像素级前后对照。
+## 战斗可读性
 
-## 把战斗可读性带进美术阶段
+白盒确认玩法关系后，我继续跟进场景表达。高频交战背景需要控制视觉噪声，并保留入口、掩体边缘、敌人轮廓与常用预瞄高度。
 
 <div className="media-pair">
-<CaseMedia src="head-whitebox.webp" caption="白盒：根据交战高差预留预瞄高度参考。" />
-<CaseMedia src="head-art.webp" caption="美术需求：用场景结构继续承载头部高度参考；画面中的美术资产为团队制作成果。" />
+<CaseMedia src="head-whitebox.webp" caption="白盒阶段 · 预留预瞄高度参考。" />
+<CaseMedia src="head-art.webp" caption="场景阶段 · 用结构延续头部高度参考；美术资产为团队成果。" />
 </div>
 
-<CaseMedia src="wall-colors.webp" caption="交战背景分级：需要保持干净的墙面、允许美术发挥的区域，以及逐项判断的中性区域。" />
+<CaseMedia src="wall-colors.webp" caption="墙面背景分级 · 干净背景、可发挥区域与中立区域。" />
 
-**目的**：不是限制美术表现，而是避免高频交战背景出现过量视觉噪声，同时保留玩家预瞄和快速识别空间的依据。
+<CaseMedia src="wall-readability-demo.mp4" video poster="wall-readability-poster.webp" caption="墙面背景实机检查 · 通过移动视角验证敌人轮廓与背景对比。" />
 
-## 场景制作与交付
+## 从白盒到场景交付
+
+我持续检查白盒、Greybox 和场景版本，确保美术包装没有改变已经验证的路线、碰撞和战斗关系。
 
 <div className="media-pair">
-<CaseMedia src="ruins-courtyard.webp" caption="室外区域 · 掩体、入口与地标进入场景表达。" />
-<CaseMedia src="ruins-cover.webp" caption="局部交战空间 · 继续核对结构与玩法要求。" />
+<CaseMedia src="ruins-whitebox.webp" caption="Whitebox · 验证体块、入口与交战空间。" />
+<CaseMedia src="ruins-greybox.webp" caption="Greybox · 将确认后的空间关系带入场景制作。" />
 </div>
 
-<details>
-<summary>补充：我在迭代中具体处理了什么</summary>
+<CaseMedia src="ruins-art.webp" caption="Art Pass · 检查包装、碰撞与原有玩法关系。" />
 
-白盒阶段持续调整高台分段、进点入口和前压空间；与程序讨论中路周期遮蔽规则并跟进视觉状态；进入美术制作后继续校对交战背景、预瞄高度和可穿射结构。工作一直延续到成品验收与上线交付。
-
-</details>
-
-[继续看地图优化](/work/gameplay-polish) · [穿射设计](/work/penetration-system)
+[继续看其他关卡设计](/work/combat-maps) · [查看关卡相关系统设计](/work/systems-iteration)
