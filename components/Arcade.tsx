@@ -20,11 +20,7 @@ export function Badge({item,moving,open,onSelect}:{item:Career;moving:boolean;op
    <div className="metal-hook"><i/></div>
    <button type="button" className={'id-badge '+(open?'badge-selected':'')} onPointerDown={down} onPointerMove={move} onPointerUp={end} onPointerCancel={end} onLostPointerCapture={()=>{physics.current.drag=false;root.current?.classList.remove('badge-dragging');}} onClick={e=>{if(e.detail===0||!physics.current.moved)onSelect();}} aria-label={`查看${item.company}经历，支持拖拽摇晃`} aria-pressed={open}>
     <span className="badge-slot"/>
-    {item.id==='netease'?<span className="netease-card-face" aria-hidden="true">
-      <span className="netease-meta"><strong>刘博</strong><i/><span>在线游戏事业部</span><small>LEVEL DESIGN · 2021—2024</small></span>
-      <span className="netease-photo-wrap"><img className="netease-id-photo" src={(process.env.NEXT_PUBLIC_BASE_PATH||'')+'/media/profile/netease-portrait.jpg'} alt=""/></span>
-      <span className="netease-brandbar"><b>网易</b><strong>NETEASE</strong></span>
-    </span>:<>
+    {item.id==='netease'?<span className="netease-card-face netease-card-real" aria-hidden="true"><img className="netease-card-photo" src={(process.env.NEXT_PUBLIC_BASE_PATH||'')+'/media/profile/netease-badge-card-clean.jpg'} alt=""/></span>:<>
       <span className="badge-header"><strong>{item.company}</strong><small>{item.english}</small></span>
       <span className="badge-art"><span className="badge-art-grid"/><span className="pixel-person" aria-hidden="true"><svg viewBox="0 0 16 18" shapeRendering="crispEdges"><path d="M5 1h6v1h2v5H3V3h2Z" fill="currentColor"/><path d="M4 5h8v6H4Z" fill="#e7dcc4"/><path d="M4 6h3v2H4m5-2h3v2H9M7 7h2v1H7" fill="#3e4240"/><path d="M6 10h4v2H6Z" fill="#e7dcc4"/><path d="M4 12h8v1h2v4H2v-4h2Z" fill="currentColor"/><path d="M7 12h2v4H7Z" fill="#eee8d7"/></svg></span><span className="badge-art-number">{item.code}</span><span className="badge-art-caption">PLAYER / RICKY</span></span>
       <span className="badge-name">刘博 <b>Ricky</b></span><span className="badge-role">{item.role}</span><span className="badge-divider"/><span className="badge-period">{item.period}</span><span className="badge-bottom"><span className="barcode"/><small>CAREER ARCHIVE / {item.code}</small></span>

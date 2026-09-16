@@ -1,52 +1,64 @@
 ---
 title: "虚灵遗迹｜从战术空间到上线地图"
-summary: "网易5v5英雄战术射击原创爆破地图：路线组织、白盒迭代、中路时间窗口与美术落地。"
+summary: "网易 5v5 英雄战术射击原创爆破地图：Layout、白盒迭代、动态中路与美术落地。"
 status: published
-date: "2026-09-15"
+date: "2026-09-16"
 order: 1
 ---
 
-<CaseMedia src="ruins-mid.webp" caption="虚灵遗迹 · 美术制作阶段的地图画面，非最终上线版本截图。" />
+<CaseMedia src="ruins-mid.webp" caption="虚灵遗迹 · 美术制作阶段。中路动态装置是这张地图最核心的辨识机制之一；本图不是最终上线截图。" />
 
-**我的职责**：原创关卡设计、Layout / Whitebox、测试迭代、世界观对齐、机制讨论、美术需求与验收。程序实现和美术资产由对应专业同事完成。
+**我的职责**：Concept、2D Layout、Whitebox、测试迭代、世界观对齐、机制讨论、美术需求与验收。程序实现和美术资产由对应专业同事完成。
 
-## 白盒与整体布局
+## 先把战斗关系搭出来
 
 <div className="media-pair">
-<CaseMedia src="ruins-overview.webp" caption="白盒鸟瞰：整体空间与高低关系。" />
-<CaseMedia src="ruins-layout.webp" caption="设计稿平面图：出生区、包点与连接路线。仅呈现该阶段布局，不标注存在版本矛盾的距离和时间。" />
+<CaseMedia src="ruins-overview.webp" caption="白盒鸟瞰：先验证区域关系、高低差和主要连接，再进入场景制作。" />
+<CaseMedia src="ruins-layout.webp" caption="2D Layout：出生区、包点与中路连接关系。只展示可确认的结构，不写存在版本矛盾的距离或时间数据。" />
 </div>
 
-## 从白盒到美术制作
+**设计判断**：两个包点、中路和转点路线需要形成不同的空间选择，而不是把同一种交战体验复制两次。白盒阶段先解决路线、枪线、掩体和高低差，美术主题随后跟进。
+
+## 动态中路：让时间改变枪线
+
+**问题**：固定中路的价值和风险很容易在开局后迅速稳定下来。
+
+**决策**：在中路加入周期变化的视野阻隔。双方都能提前读取变化时机；装置升起时遮挡视野，但不提供实体防弹掩护。
+
+**结果**：地图本身形成一个可预判的时间窗口，玩家可以围绕它选择推进、转点、移动或绕后，而不是把动态装置当成单纯的视觉演出。
+
+## 白盒不是终点
 
 <div className="media-trio">
-<CaseMedia src="ruins-whitebox.webp" caption="白盒阶段 · 验证体块、入口与交战空间。" />
-<CaseMedia src="ruins-greybox.webp" caption="灰模阶段 · 将空间关系带入场景制作。" />
-<CaseMedia src="ruins-art.webp" caption="美术阶段 · 持续跟进结构与玩法要求。" />
+<CaseMedia src="ruins-whitebox.webp" caption="Whitebox · 验证体块、入口和交战空间。" />
+<CaseMedia src="ruins-greybox.webp" caption="Greybox · 把空间关系带入场景制作。" />
+<CaseMedia src="ruins-art.webp" caption="Art Pass · 持续检查场景包装是否改变原有玩法关系。" />
 </div>
 
-以上为工作汇总中同一区域的阶段画面，镜头并非完全一致，不作为精确叠图或最终成品对比。
+这些画面来自不同制作阶段，镜头并不完全一致，因此只用来展示生产过程，不做像素级前后对照。
 
-## 美术落地时保留交战信息
+## 把战斗可读性带进美术阶段
 
 <div className="media-pair">
-<CaseMedia src="head-whitebox.webp" caption="白盒：结合交战高差标记预瞄高度。" />
-<CaseMedia src="head-art.webp" caption="美术需求示意：以场景结构承载不同高度的头线参考。美术画面为团队制作成果。" />
+<CaseMedia src="head-whitebox.webp" caption="白盒：根据交战高差预留预瞄高度参考。" />
+<CaseMedia src="head-art.webp" caption="美术需求：用场景结构继续承载头部高度参考；画面中的美术资产为团队制作成果。" />
 </div>
 
-<CaseMedia src="wall-colors.webp" caption="墙面分级：白色保护干净的交战背景，蓝色允许更丰富的细节，黄色区域逐项判断。" />
+<CaseMedia src="wall-colors.webp" caption="交战背景分级：需要保持干净的墙面、允许美术发挥的区域，以及逐项判断的中性区域。" />
 
-## 场景制作阶段
+**目的**：不是限制美术表现，而是避免高频交战背景出现过量视觉噪声，同时保留玩家预瞄和快速识别空间的依据。
+
+## 场景制作与交付
 
 <div className="media-pair">
-<CaseMedia src="ruins-courtyard.webp" caption="室外区域 · 掩体、入口与地标的场景表达。" />
-<CaseMedia src="ruins-cover.webp" caption="局部交战空间 · 结构与美术持续对齐。" />
+<CaseMedia src="ruins-courtyard.webp" caption="室外区域 · 掩体、入口与地标进入场景表达。" />
+<CaseMedia src="ruins-cover.webp" caption="局部交战空间 · 继续核对结构与玩法要求。" />
 </div>
 
 <details>
-<summary>展开：设计与交付补充</summary>
+<summary>补充：我在迭代中具体处理了什么</summary>
 
-我在白盒迭代中调整高台分段、进点入口和前压空间；与程序讨论中路周期遮蔽机制，并跟进视觉状态。工作从关卡方案延续到上线验收。地图上线及用于官方宣传由本人经历确认，本页阶段图不替代最终成品证明，也不写未经记录的胜率变化。
+白盒阶段持续调整高台分段、进点入口和前压空间；与程序讨论中路周期遮蔽规则并跟进视觉状态；进入美术制作后继续校对交战背景、预瞄高度和可穿射结构。工作一直延续到成品验收与上线交付。
 
 </details>
 
