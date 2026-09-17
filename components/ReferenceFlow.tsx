@@ -168,7 +168,7 @@ export default function ReferenceFlow(){
 
       <section className="flow-projects" id="portfolio" aria-label="作品分类">
         <div className="portfolio-watermark" aria-hidden="true">PORTFOLIO</div>
-        <header className="portfolio-head"><p>SELECTED WORK / 2021—2024</p><h2>按工作类型查看作品</h2><span>爆破模式关卡白盒、其他关卡设计、活动模式，以及关卡相关系统设计。</span></header>
+        <header className="portfolio-head"><p>SELECTED WORK / 2021—2024</p><h2>作品集展示</h2><span>爆破模式关卡白盒、其他关卡设计、活动模式，以及关卡相关系统设计。</span></header>
         <div className="portfolio-layout">
           <div className="project-table" onPointerLeave={()=>setPreview(0)}>{projectGroups.map((group,i)=><Link href={group.href} key={group.no} className={'project-row '+(preview===i?'is-active':'')} onPointerEnter={()=>setPreview(i)} onFocus={()=>setPreview(i)}><span className="project-no">{group.no}</span><span className="project-title"><strong>{group.title}</strong><small>{group.english}</small><em>{group.summary}</em></span><span className="project-arrow">↗</span></Link>)}</div>
           <div className={'project-preview project-preview-'+projectGroups[preview].no} aria-live="polite"><div className="preview-image"><img key={projectGroups[preview].image} src={(process.env.NEXT_PUBLIC_BASE_PATH||'')+projectGroups[preview].image} alt={projectGroups[preview].imageAlt}/><span>{projectGroups[preview].no}</span></div><p>{projectGroups[preview].note}</p><div>{projectGroups[preview].tags.map(tag=><span key={tag}>{tag}</span>)}</div><Link href={projectGroups[preview].href}>打开该板块 <span>↗</span></Link></div>

@@ -118,3 +118,14 @@ body:has(.reference-flow){max-width:none;border:0;background:#13232d;color:#eeea
 .project-preview-01 .preview-image img{object-fit:contain;padding:12px}
 .project-preview-04 .preview-image{background:#282842}
 .project-preview-04 .preview-image img{object-fit:contain}
+
+/* Keep the mobile lanyards physically connected to their card clips. */
+@media(max-width:760px){
+  .career-badge-longtu .career-lanyard,.career-badge-study .career-lanyard{height:154px}
+}
+
+/* Let Portfolio flow into Contact instead of reserving a second empty viewport. */
+@media(min-width:761px){
+  .flow-projects{min-height:auto;padding-bottom:48px}
+  .flow-contact.flow-contact-simple{min-height:auto;padding-top:58px}
+}
